@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Legislative Profiles for Georgia state-level districts">
+    <meta name="author" content="Sharpe Solutions">
+<script type="text/javascript">
+    var data = {{ data|tojson|safe }}
+</script>
+</head>
+
+<body>
+    <div class="page">
+        <div class="distr-head" id="distr-type">{{data['dist_type']}}<br>District</div><div class="distr-head" id="distr-num">{{data['dist_num']}}</div><img id="logo" src="static/img/gafcp_logo.gif" width="">
+        <hr>
+        <div class="indic-box" id="indic1">
+            <div class="indic-value" id="indic-value1">{{data['indic_value1']}}</div>
+            <div class="indic-descr" id="indic-descr1">{{data['indic_descr1']}}<br>
+                <span style="font-size: 22px">Georgia average: <span style="color:rgb(110,50,93)">{{data['ga_avg1']}}</span></span>
+            </div>
+        </div>
+        <div class="indic-box" id="indic2">
+            <div class="indic-value" id="indic-value1">{{data['indic_value2']}}</div>
+            <div class="indic-descr" id="indic-descr1">{{data['indic_descr2']}}<br>
+                <span style="font-size: 22px">Georgia average: <span style="color: rgb(155,165,79)">{{data['ga_avg2']}}</span></span>
+            </div>
+        </div>
+        <div class="indic-box" id="indic3">
+            <div class="indic-value" id="indic-value1">{{data['indic_value3']}}</div>
+            <div class="indic-descr" id="indic-descr1">{{data['indic_descr3']}}<br>
+                <span style="font-size: 22px">Georgia average: <span style="color: rgb(246, 160, 26)">{{data['ga_avg3']}}</span></span>
+            </div>
+        </div>
+        <div id="qrcode"><span id="qrtext"><span style="font-size: 24px">Scan our QR code </span> to see all our county profiles of child, family, and community well-being, or visit <a style="color:orange" href="gafcp.org/index.php/count/georgia_profiles">gafcp.org/index.php/count/georgia_profiles</a></span><img height="100" width="100" src="static/img/qrcode.png" style="float: right;"></div>
+    </div>
+    <div class="page">
+        <div id="ways-header">Here are some ways Georgia Family Connection is helping communities thrive in Georgia</div>
+        <div id="indic-ways1" class="indic-ways-box">
+            <p>
+                {{data['indic_ways1']|safe}}
+            </p>
+        </div>
+        <div id="indic-ways2" class="indic-ways-box">
+            <p>
+                {{data['indic_ways2']|safe}}
+            </p>
+        </div>
+        <div id="indic-ways3" class="indic-ways-box">
+            <p>
+                {{data['indic_ways3']|safe}}
+            </p>
+        </div>
+        <div id="collabs-district"><p><b>Thanks to your support,</b> Georgia Family Connection exists to provide data about the families in your district and to assist you in <b>strengthening the communities you serve.</b>  Here are our Collaboratives in your district: <br></p>
+        <table>
+        {% for col1, col2 in data['table_rows'] %}
+            <tr >              
+                <td >{{col1|safe}}</td>
+                <td >{{col2|safe}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        </div>
+    </div>
+</body>

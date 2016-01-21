@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="static/css/find_district_style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-b2fCq1DqXmgRBMDxcmRBxYBYOPWxG1c&libraries=places&geometries"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="static/js/script.js"></script>
+    <script src="static/js/infobox.js"></script>
+</head>
+
+<body>
+    <div id="work-in-progress">
+        <div class="work-spinner"></div>
+    </div>
+    <input id="pac-input" class="controls" data-toggle="tooltip" type="text" placeholder="Type an Address to find its District" </input>
+    <div id="layer-select" class="btn-group control-buttons" data-toggle="buttons">
+        <label class="btn btn-default layer-select-button active">
+            <input type="radio" name="layer" id="house" autocomplete="off" value="house" checked> House Districts
+        </label>
+        <label class="btn btn-default layer-select-button">
+            <input type="radio" name="layer" id="senate" autocomplete="off" value="senate"> Senate Districts
+        </label>
+
+    </div>
+    <div id="map">
+    </div>
+
+
+</body>
+
+</html>

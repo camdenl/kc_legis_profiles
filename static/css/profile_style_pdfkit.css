@@ -1,0 +1,154 @@
+html,
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+.page {
+    /* Reset all page styles that have been for better screen appearance only */
+    /* Break cascading by using the !important rule */
+    /* These resets are absolute must-haves for the print styles and the specificity may be higher elsewhere */
+    width: initial !important;
+    min-height: initial !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: initial !important;
+    border-radius: initial !important;
+    background: initial !important;
+    box-shadow: initial !important;
+    /* Force page breaks after each .page element of the document */
+    page-break-after: always;
+    -webkit-print-color-adjust: exact;
+}
+
+
+
+#print-button {
+    background-color: white;
+    border: 0;
+}
+
+.distr-head {
+    font-size: 0;
+    vertical-align: top;
+    display: inline-block;
+    color: white;
+    background-color: rgb(246, 160, 26);
+    margin: 0;
+    height: 1.24in;
+}
+
+#distr-type {
+    font-weight: bold;
+    text-align: center;
+    font-size: 50px;
+    width: 2.2in;
+}
+
+#distr-num {
+    font-weight: bold;
+    text-align: center;
+    font-size: 100px;
+    width: 2.1in;
+}
+
+#logo {
+    width: 200px;
+    height: 120px;
+    float: right;
+}
+
+hr {
+    border-width: 0;
+    background: rgb(152, 98, 45);
+    height: 6px;
+}
+
+.indic-box {
+    display: flex;
+    width: 100%;
+    height: 1.92in;
+    border-radius: 25px;
+    margin: 10px 0px 10px 0px;
+}
+
+.indic-value {
+    font-weight: bold;
+    align-self: center;
+    font-size: 120px;
+    padding: 0px 30px 0px 40px;
+}
+
+.indic-descr {
+    font-weight: bold;
+    align-self: center;
+    font-size: 24px;
+    color: white;
+    padding-right: 5px;
+}
+
+#indic1,
+#indic-ways1 {
+    background-color: rgb(155, 165, 79);
+    color: rgb(110, 50, 93);
+}
+
+#indic2,
+#indic-ways2 {
+    background-color: rgb(0, 90, 104);
+    color: rgb(155, 165, 79);
+}
+
+#indic3,
+#indic-ways3 {
+    background-color: rgb(110, 50, 93);
+    color: rgb(246, 160, 26);
+}
+
+#qrcode {
+    padding-top: .25in;
+    font-weight: bold;
+    display: inline-block;
+    width: 100%
+}
+
+#qrtext {
+    width: 5.5in;
+    float: left;
+}
+
+#ways-header {
+    font-weight: bold;
+    background-color: rgb(246, 160, 26);
+    color: white;
+    font-size: 24px;
+    padding: 10px 40px 10px 40px;
+}
+
+.indic-ways-box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 15px 10px 15px;
+}
+
+#collabs-district {
+    margin-top: 20px;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background-color: rgb(215, 219, 183);
+    padding: 10px 10px 10px 10px;
+}
+
+table {
+    margin-top: 10px;
+    width: 100%;
+}
+
+tr {
+    width: 100%;
+}
+
+td {
+    width: 50%;
+}

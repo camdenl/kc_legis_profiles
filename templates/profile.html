@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Legislative Profiles for Georgia state-level districts">
+    <meta name="author" content="Sharpe Solutions">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link href="{{ url_for('static', filename='css/sheets-of-paper.css') }}" rel="stylesheet">
+    <link href="static/css/sheets-of-paper-usletter.css" rel="stylesheet">
+    <link href="static/css/profile_style.css?ver=.1" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="static/js/profile_script.js?ver=.1"></script>
+
+    <script type="text/javascript">
+        var data = {
+            {
+                data | tojson | safe
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="warning" class="warning no-print">
+        <input id='close' type=button onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;' value="X"></input>
+        <p class="text">
+            We strongly recommend using Google Chrome to use this page, to download Google Chrome (it's free) please click <a style="color:blue" href="https://www.google.com/chrome/browser/desktop/">here</a>
+        </p>
+    </div>
+    <div class="page">
+        <div class="no-print control-buttons">
+            <button type="button" id="print-button" onclick="checkDoc()"><img src="static/img/print.png" width="30px" height="30px"></button>
+            <!--<button type="button" id="pdf-button" onclick="location.href='//pdfcrowd.com/url_to_pdf/'"><img src="static/img/make_pdf.png" width="30px" height="30px"></button>-->
+        </div>
+        <div class="distr-head">
+            <div id="distr-type">{{data['dist_type']}} District</div>
+            <div class="distr-head" id="distr-num">{{data['dist_num']}}</div>
+            <img id="logo" src="static/img/new_logo.jpg" width="">
+        </div>
+        <hr>
+        <div class="indic-box" id="indic1">
+            <div class="indic-value" id="indic-value1">{{data['indic_value1']}}</div>
+            <div class="indic-descr" id="indic-descr1">{{data['indic_descr1']}}
+                <br>
+                <span style="font-size: 22px">Georgia average: <span style="color:rgb(110,50,93)">{{data['ga_avg1']}}</span></span>
+            </div>
+        </div>
+        <div class="indic-box" id="indic2">
+            <div class="indic-value" id="indic-value1">{{data['indic_value2']}}</div>
+            <div class="indic-descr" id="indic-descr1">{{data['indic_descr2']}}
+                <br>
+                <span style="font-size: 22px">Georgia average: <span style="color: rgb(155,165,79)">{{data['ga_avg2']}}</span></span>
+            </div>
+        </div>
+        <div class="indic-box" id="indic3">
+            <div class="indic-value" id="indic-value1">{{data['indic_value3']}}</div>
+            <div class="indic-descr" id="indic-descr1">{{data['indic_descr3']}}
+                <br>
+                <span style="font-size: 22px">Georgia average: <span style="color: rgb(246, 160, 26)">{{data['ga_avg3']}}</span></span>
+            </div>
+        </div>
+        <div id="qrcode"><span id="qrtext"><span style="font-size: 24px">Scan our QR code </span> to see all our county profiles of child, family, and community well-being, or visit <a style="color:orange" href="gafcp.org/index.php/count/georgia_profiles">gafcp.org/index.php/count/georgia_profiles</a></span><img height="100" width="100" src="static/img/qrcode.png" style="float: right;"></div>
+    </div>
+    <div class="page">
+        <div class="no-print control-buttons">
+            <button type="button" id="print-button" onclick="checkDoc()"><img src="static/img/print.png" width="30px" height="30px"></button>
+            <!--<button type="button" id="pdf-button" onclick="location.href='//pdfcrowd.com/url_to_pdf/'"><img src="static/img/make_pdf.png" width="30px" height="30px"></button>-->
+        </div>
+        <div id="ways-header">Here are some ways Georgia Family Connection is helping communities thrive in Georgia</div>
+        <div id="indic-ways">
+            <div class="indic-ways-row">
+                <div class="indic-ways-box indic-ways1 left">
+                    <textarea class="indic-ways-text1" spellcheck="true" maxlength="100" rows="4" placeholder="Type an example of how you are addressing {{data['indic_descr1']}}"></textarea>
+                    <p class="indic-ways-text1 indic-ways-paragraph" style="display:none"></p>
+
+                </div>
+                <div class="indic-ways-box indic-ways1 right">
+                    <textarea class="indic-ways-text2" spellcheck="true" maxlength="100" rows="4" placeholder="Type an example of how you are addressing {{data['indic_descr1']}}"></textarea>
+                    <p class="indic-ways-text2 indic-ways-paragraph" style="display:none"></p>
+                </div>
+            </div>
+            <div class="indic-ways-row">
+                <div class="indic-ways-box indic-ways2 left">
+                    <textarea class="indic-ways-text3" spellcheck="true" maxlength="100" rows="4" placeholder="Type an example of how you are addressing {{data['indic_descr2']}}"></textarea>
+                    <p class="indic-ways-text3 indic-ways-paragraph" style="display:none"></p>
+                </div>
+
+                <div class="indic-ways-box indic-ways2 right">
+                    <textarea class="indic-ways-text4" spellcheck="true" maxlength="100" rows="4" placeholder="Type an example of how you are addressing {{data['indic_descr2']}}"></textarea>
+                    <p class="indic-ways-text4 indic-ways-paragraph" style="display:none"></p>
+                </div>
+            </div>
+            <div class="indic-ways-row">
+                <div class="indic-ways-box indic-ways3 left">
+                    <textarea class="indic-ways-text5" spellcheck="true" maxlength="100" rows="4" placeholder="Type an example of how you are addressing {{data['indic_descr3']}}"></textarea>
+                    <p class="indic-ways-text5 indic-ways-paragraph" style="display:none"></p>
+                </div>
+
+                <div class="indic-ways-box indic-ways3 right">
+                    <textarea class="indic-ways-text6" spellcheck="true" maxlength="100" rows="4" placeholder="Type an example of how you are addressing {{data['indic_descr3']}}"></textarea>
+                    <p class="indic-ways-text6 indic-ways-paragraph" style="display:none"></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="collabs-district">
+            <p><b>Thanks to your support,</b> Georgia Family Connection exists to provide data about the families in your district and to assist you in <b>strengthening the communities you serve.</b> Here are our Collaboratives in your district:
+                <br>
+            </p>
+            <table class="collabs-table">
+                {% for col1, col2 in data['table_rows'] %}
+                <tr>
+                    <td>
+                        <div class="avoid">{{col1|safe}}</div>
+                    </td>
+                    <td>
+                        <div class="avoid">{{col2|safe}}</div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div id="instr-chrome" class="instructions no-print">
+        <button id="chrome-toggle" class="instr-toggle">Hide Instructions</button>
+        <div id="instr-chrome-text" class="instr-text">
+            <h3 class="instr-title">Instructions</h3>
+            <h4>How to complete the text box:</h4>
+            <ul>
+                <li>Follow the prompt in each text box located on the second page of the profile.</li>
+                <li>Please list two separate examples for each indicator.</li>
+                <li>Please check your spelling and grammar before printing.</li>
+                <li>When done listing examples, read on to save the file.</li>
+            </ul>
+            <h4>How to save the file:</h4>
+            <ul>
+                <li>Click the print Icon <img src="static/img/print.png" width="20px" height="20px"> located at the top of each page</li>
+                <li>Follow the prompts to ensure the text entered is correct.</li>
+                <li>In the print preview box that opens, change the <strong>Destination</strong> to <strong>Save as PDF</strong>.</li>
+                <li>Make sure the <strong>Margins</strong> are set to <strong>Default</strong>.</li>
+                <li>In the <strong>Options</strong> section, uncheck <strong>Headers and footers</strong>.</li>
+                <li>Click <strong>Save</strong>.</li>
+            </ul>
+        </div>
+    </div>
+    <div id="instr-firefox" class="instructions no-print">
+        <button id="firefox-toggle" class="instr-toggle">Hide Instructions</button>
+        <div id="instr-firefox-text" class="instr-text">
+
+            <h3 class="instr-title">
+        Instructions
+        </h3>
+            <h4>How to complete the text box:</h4>
+            <ul>
+                <li>Follow the prompt in each text box located on the second page of the profile.</li>
+                <li>Please list two separate examples for each indicator.</li>
+                <li>Please check your spelling and grammar before printing.</li>
+                <li>When done listing examples, read on to save the file.</li>
+            </ul>
+            <h4>How to save the file:</h4>
+            <ul>
+                <li>Click the print Icon <img src="static/img/print.png" width="20px" height="20px"> located at the top of each page</li>
+                <li>Follow the prompts to ensure the text entered is correct.</li>
+                <li>After following the prompts, click the menu button in the top right and then click print, or press Ctrl + P.</li>
+                <li>In the print preview box that opens, click on <strong>Page Setup...</strong></li>
+                <li>In the <strong>Format &amp; Options</strong> section, check <strong>Print Background</strong>.</li>
+                <li>In the <strong>Margins &amp; Header/Footer</strong> section, put all margins as 0.5 and select <strong>--blank--</strong> for all of the dropdowns under <strong>Headers &amp; Footers.</strong></li>
+                <li>Now click <strong>Print...</strong>, change the Printer Name to <strong>Microsoft Print to PDF</strong> and click OK.</li>
+            </ul>
+
+        </div>
+    </div>
+    <div id="instr-ie" class="instructions no-print">
+        <button id="ie-toggle" class="instr-toggle">Hide Instructions</button>
+        <div id="instr-ie-text" class="instr-text">
+
+            <h3 class="instr-title">
+        Instructions
+        </h3>
+            <h4>How to complete the text box:</h4>
+            <ul>
+                <li>Follow the prompt in each text box located on the second page of the profile.</li>
+                <li>Please list two separate examples for each indicator.</li>
+                <li>Please check your spelling and grammar before printing.</li>
+                <li>When done listing examples, read on to save the file.</li>
+            </ul>
+            <h4>How to save the file:</h4>
+            <ul>
+                <li>Click the print Icon <img src="static/img/print.png" width="20px" height="20px"> located at the top of each page</li>
+                <li>Follow the prompts to ensure the text entered is correct.</li>
+                <li>After following the prompts, click the menu button in the top right and then click <strong>Print Preview</strong>.</li>
+                <li>In the print preview box that opens, click on <strong>Page Setup...</strong></li>
+                <li>In the <strong>Format &amp; Options</strong> section, check <strong>Print Background</strong>.</li>
+                <li>In the <strong>Margins &amp; Header/Footer</strong> section, put all margins as 0.5 and select <strong>--blank--</strong> for all of the dropdowns under <strong>Headers &amp; Footers.</strong></li>
+                <li>Now click <strong>Print...</strong>, change the Printer Name to <strong>Microsoft Print to PDF</strong> and click OK.</li>
+            </ul>
+
+        </div>
+    </div>
+
+</body>

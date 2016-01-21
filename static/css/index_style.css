@@ -1,0 +1,73 @@
+ html,
+ body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     font-family: 'Arial', 'Helvetica', sans-serif;
+ }
+ 
+ #container {
+     margin-top: 10px;
+ }
+ 
+ .text-wrap {
+     white-space: normal;
+ }
+ 
+ @media (max-width: 460px) {
+     .bootstrap-select .dropdown-toggle {
+         max-width: 260px;
+     }
+ }
+ 
+ .form-group {
+     margin-top: 20px;
+ }
+ 
+ .form-box {
+     margin-bottom: 10px;
+     padding: 20px;
+     max-width: 500px;
+     -webkit-box-shadow: 10px 10px 32px -9px rgba(0, 0, 0, 0.75);
+     -moz-box-shadow: 10px 10px 32px -9px rgba(0, 0, 0, 0.75);
+     box-shadow: 10px 10px 32px -9px rgba(0, 0, 0, 0.75);
+     border-radius: 21px 21px 21px 21px;
+     -moz-border-radius: 21px 21px 21px 21px;
+     -webkit-border-radius: 21px 21px 21px 21px;
+     border: 0px solid #000000;
+     background-color: #e6e9f2
+ }
+ 
+ .nav-box {
+     max-width: 450px;
+     padding: 20px;
+     -webkit-box-shadow: 10px 10px 32px -9px rgba(0, 0, 0, 0.75);
+     -moz-box-shadow: 10px 10px 32px -9px rgba(0, 0, 0, 0.75);
+     box-shadow: 10px 10px 32px -9px rgba(0, 0, 0, 0.75);
+     border-radius: 21px 21px 21px 21px;
+     -moz-border-radius: 21px 21px 21px 21px;
+     -webkit-border-radius: 21px 21px 21px 21px;
+     border: 0px solid #000000;
+     background-color: #e6e9f2
+ }
+ 
+ #legis-form,
+ #county-form {
+     display: none;
+ }
+ 
+ #back-btn-div {
+     display: none;
+     position: absolute;
+     top: 15px;
+     left: 25px;
+ }
+ 
+ #back-btn {
+     background-color: #e6e9f2;
+     border: 0;
+ }
+ 
+ #county-selector {
+     margin-bottom: 15px;
+ }

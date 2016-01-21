@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>KIDS COUNT GA Legislative Profiles</title>
+
+    <meta name="description" content="Legislative Profiles for Georgia state-level districts">
+    <meta name="author" content="Sharpe Solutions">
+    <meta id="house-boolean" data-name="{{house}}">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="static/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="static/css/index_style.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.checkboxes.min.js"></script>
+    <script src="static/js/bootstrap-select.min.js"></script>
+    <script src="static/js/index-script.js"></script>
+
+</head>
+
+<body>
+
+    <div id="container" class="container-fluid ">
+
+        <div id="back-btn-div" class="no-print">
+            <button type="button" id="back-btn"><img src="static/img/back.png" width="20px" height="20px"></button>
+        </div>
+
+        <div id="nav-buttons" class="nav-box">
+            <span style="font-size: 24px;">I want to... </span>
+            <br>
+            <div class="btn-group" role="group" aria-label="buttons">
+                <button type="button" id="legis-btn" class="btn btn-lg text-wrap btn-link">Create a Legislative Profile for a specific district</button>
+                <button type="button" id="county-btn" class="btn btn-lg text-wrap btn-link">Create all Legislative Profiles in a single county</button>
+            </div>
+
+        </div>
+
+        <form role="form" class="form-box" id="legis-form" name="legis-form" onsubmit="return validateLegisForm()" action="/profile" method="post">
+            <div class="form-group">
+                <label for="district-select">Select Senate or House:</label>
+                <select class="form-control" name="district-select" id="district-select">
+                    <option value="Senate" {% if house==False %} selected="selected" {% endif %}>Senate</option>
+                    <option value="House" {% if house==True %} selected="selected" {% endif %}>House</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="district-number">Input the District Number:</label>
+                <p> If you don't know your district, please
+                    <a href="/find_district"> click here </a> to find it from an address!</p>
+                <p> You can also look up your district by your representative's name in the <a href="http://www.senate.ga.gov/senators/en-US/FindyourLegislator.aspx">Senate</a> and <a href="http://www.house.ga.gov/Representatives/en-US/HouseMembersList.aspx">House</a></p>
+                <input type="number" class="form-control" min="1" step="1" id="district-number" name="district-number" data-bind="value:district-number" required value="{{ dist_number }}" data-toggle="tooltip">
+            </div>
+            <div class="form-group">
+                <label style="margin-bottom:0px" data-toggle="tooltip" id="checkboxes-label-legis"> Select three indicators:</label>
+                <div id="checkboxes-legis" data-toggle="checkboxes" data-max="3">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-legis" value="not_attend_preschool_rate">Children not attending pre-school (ages 3-4)
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-legis" value="no_health_insurance_rate">Children without health insurance</label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-legis" value="not_school_not_work_rate">Teens not in school and not working (ages 16-19)
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-legis" value="educ_attain_25_hs_rate">Adults with high school diploma</label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-legis" value="educ_attain_25_bach_rate">Adults with Bachelor's degree or higher
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-legis" value="child_poverty_saipe_rate">Child poverty
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-legis" value="no_parent_in_labr_force_rate">Children living in families where no parent has full time year-round employment
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-legis" value="families_lt_150per_of_pov_rate">Families with annual incomes less than 150% of poverty level
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-legis" value="owner_occupied_housing_rate">Homeownership
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-info">Create Legislative District Profile</button>
+        </form>
+
+        <form role="form" class="form-box" id="county-form" name="county-form" onsubmit="return validateCountyForm()" action="/countyProfile" method="post">
+            <div class="form-group">
+                <select id="county-selector" name="county-selector" class="selectpicker" data-live-search="true" title="Select a County">
+                </select>
+            </div>
+            <div class="form-group">
+                <label style="margin-bottom:0px" data-toggle="tooltip" id="checkboxes-county-label"> Select three indicators:</label>
+                <div id="checkboxes-county" data-toggle="checkboxes" data-max="3">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-county" value="not_attend_preschool_rate">Children not attending pre-school (ages 3-4)
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-county" value="no_health_insurance_rate">Children without health insurance</label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-county" value="not_school_not_work_rate">Teens not in school and not working (ages 16-19)
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-county" value="educ_attain_25_hs_rate">Adults with high school diploma</label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-county" value="educ_attain_25_bach_rate">Adults with Bachelor's degree or higher
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-county" value="child_poverty_saipe_rate">Child poverty
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-county" value="no_parent_in_labr_force_rate">Children living in families where no parent has full time year-round employment
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-county" value="families_lt_150per_of_pov_rate">Families with annual incomes less than 150% of poverty level
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="indic-check-county" value="owner_occupied_housing_rate">Homeownership
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-info">Create Legislative District Profiles</button>
+
+        </form>
+    </div>
+</body>
+
+</html>
